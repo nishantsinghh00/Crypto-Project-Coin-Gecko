@@ -1,15 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import getCoinByMarket from "../../Services/getCoinByMarket";
+// import CurrencyContext from "../../CurrencyContext/CurrencyContext";
+import currencyStore from "../../Store/GlobalStore"
 
 
 function CoinTable(){
 
     const [page,setPage] = useState(1);
+    const {currency} = currencyStore();
 
     const {data,isLoading,isError,error} = useQuery({
-        queryKey:['coins',page],
-        queryFn:()=>getCoinByMarket(page,'usd'),
+        queryKey:['coins',page,currency],
+        queryFn:()=>getCoinByMarket(page,currency),
         cacheTime:1000*60*2,
         staleTime:100*60*2,
     });
