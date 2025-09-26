@@ -2,10 +2,9 @@
 import axiosInstance from "../Helper/axiosInstance";
 
 
-async function getCoinByMarket(id){
-    const perPage = 10;
+async function getCoinDetails(id){
     try{
-        const responce =await axiosInstance.get(``);
+        const responce =await axiosInstance.get(`coins/${id}`);
         console.log(responce);
         return responce.data;
 
@@ -16,4 +15,4 @@ async function getCoinByMarket(id){
     }
 }
 
-export default getCoinByMarket;
+export default getCoinDetails;
