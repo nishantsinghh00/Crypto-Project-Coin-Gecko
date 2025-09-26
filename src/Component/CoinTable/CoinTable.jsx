@@ -3,12 +3,14 @@ import { useContext, useState } from "react";
 import getCoinByMarket from "../../Services/getCoinByMarket";
 // import CurrencyContext from "../../CurrencyContext/CurrencyContext";
 import currencyStore from "../../Store/GlobalStore"
+import { useNavigate } from "react-router-dom";
 
 
 function CoinTable(){
 
     const [page,setPage] = useState(1);
     const {currency} = currencyStore();
+    const navigate = useNavigate();
 
     const {data,isLoading,isError,error} = useQuery({
         queryKey:['coins',page,currency],
@@ -19,6 +21,9 @@ function CoinTable(){
     
     if(error){
         return <div>Error in fecthing data</div>;
+    }
+    function CoinHandler(id) {
+        navigate(`/details/${id}`)
     }
     return(
         <div className="my-5 flex flex-col gap-5 items-center justify-center w-[80vw] mx-auto">
@@ -41,7 +46,7 @@ function CoinTable(){
                 {isLoading && <div>Loding...</div>}
                 {data && data.map((coin)=>{
                     return(
-                        <div key={coin.id} className="w-full bg-transparent text-white flex px-2 py-4 font-semibold items-center justify-center">
+                        <div key={coin.id} className="w-full bg-transparent text-white flex px-2 py-4 font-semibold items-center justify-center cursor-pointer" onClick={()=>CoinHandler(coin.id)}>
                             <div className="flex items-center justify-start gap-3 basis-[35%]">
                                 <div className="w-[5rem] h-[5rem]">
                                     <img src={coin.image} className="w-full h-full"/>
