@@ -1,12 +1,30 @@
-# React + Vite
+# 💰 Crypto Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and responsive **Cryptocurrency Tracker** website built with **React**.  
+It fetches real-time crypto data (prices, market cap, volume, etc.) using the **CoinGecko API** and displays it in an easy-to-understand UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- 📊 Live cryptocurrency price updates  
+- 🔍 Search for specific coins by name/symbol  
+- 📈 View market cap, 24h change, and total volume  
+- 🌙 Clean and responsive UI (mobile + desktop)  
+- ⚡ Powered by **CoinGecko API** (no API key required)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+- **React** (Frontend framework)  
+- **CoinGecko API** (Crypto data provider)  
+- **Axios / Fetch API** (to get data)  
+- **Tailwind CSS / CSS** (styling)  
+
+---
+
+
+API Reference
+
+GET https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc
