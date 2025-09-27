@@ -4,6 +4,7 @@ import getCoinByMarket from "../../Services/getCoinByMarket";
 // import CurrencyContext from "../../CurrencyContext/CurrencyContext";
 import currencyStore from "../../Store/GlobalStore"
 import { useNavigate } from "react-router-dom";
+import MyLoader from "../ComponentLoader/ComponentLoader";
 
 
 function CoinTable(){
@@ -43,13 +44,13 @@ function CoinTable(){
                 </div>
             </div>
             <div className="flex flex-col w-[80vw] mx-auto">
-                {isLoading && <div>Loding...</div>}
+                {isLoading && <MyLoader />}
                 {data && data.map((coin)=>{
                     return(
                         <div key={coin.id} className="w-full bg-transparent text-white flex px-2 py-4 font-semibold items-center justify-center cursor-pointer" onClick={()=>CoinHandler(coin.id)}>
                             <div className="flex items-center justify-start gap-3 basis-[35%]">
                                 <div className="w-[5rem] h-[5rem]">
-                                    <img src={coin.image} className="w-full h-full"/>
+                                    <img src={coin.image} className="w-full h-full" loading="lazy"/>
                                 </div>
                                 <div className="flex flex-col">
                                     <div className="text-3xl">{coin.name}</div>
