@@ -24,7 +24,7 @@ function CoinInfoContainer({coinId}){
         return <ErrorComponent type ="error" error="Something went wrong"/>
     }
     return(
-        <CoinInfo historicData={historicData} setDays={setDays} setInterval={setInterval}/>
+        <CoinInfo historicData={historicData} setDays={setDays} setInterval={setInterval} days={days} currency={currency}/>
     );
 }
 
